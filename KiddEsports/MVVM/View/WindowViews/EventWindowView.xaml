@@ -1,0 +1,131 @@
+﻿<Window x:Class="KiddEsports.MVVM.View.WindowViews.EventWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KiddEsports.MVVM.View.WindowViews"
+        xmlns:windowViewModel="clr-namespace:KiddEsports.MVVM.ViewModel.WindowViewModels"
+        xmlns:theme="clr-namespace:KiddEsports.Theme"
+        mc:Ignorable="d"
+        Title="ResultsWindow" Width="600" Height="350"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+    <Window.DataContext>
+        <windowViewModel:EventWindowViewModel/>
+    </Window.DataContext>
+    <Border Style="{StaticResource WindowBorderStyle1}"
+            MouseDown="Window_MouseDown"
+            Focusable="True"
+            x:Name="windowBorder">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal"
+                        Margin="0,0,10,0">
+                <Button
+                    x:Name="btnMinimise"
+                    Height="20" Width="25"
+                    Click="btnMinimise_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="DeepSkyBlue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="{StaticResource minimise}" Margin="0,0,0,5"/>
+                </Button>
+
+                <Button
+                    x:Name="btnClose" 
+                    Height="20" Width="25"
+                    Click="btnClose_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF4C70"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="{StaticResource close}" Margin="5"/>
+                </Button>
+            </StackPanel>
+
+            <TextBox Grid.Row="1" Grid.Column="0"
+                     Height="30" Width="300"
+                     VerticalContentAlignment="Center"
+                     Style="{StaticResource ModernTextbox}"
+                     theme:ThemeProperties.TextBlock="Event Name"
+                     x:Name="txtEventName">
+            </TextBox>
+
+            <DatePicker Grid.Row="2" Grid.Column="0"
+                        Height="30" Width="300"
+                        x:Name="datePicker">
+            </DatePicker>
+
+            <TextBox Grid.Row="3" Grid.Column="0"
+                     Height="30" Width="300"
+                     VerticalContentAlignment="Center"
+                     Style="{StaticResource ModernTextbox}"
+                     theme:ThemeProperties.TextBlock="Location"
+                     x:Name="txtEventLocation">
+            </TextBox>
+
+            <StackPanel Grid.Row="6" Grid.Column="0"
+                        Margin="50,5,50,5"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Center">
+
+                <Button Content="Save" x:Name="btnSave"
+                        Margin="10,0,10,0" Width="100"
+                        Style="{StaticResource ButtonTheme}" Click="btnSave_Click"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

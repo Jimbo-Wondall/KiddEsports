@@ -1,0 +1,65 @@
+﻿<UserControl x:Class="KiddEsports.MVVM.View.TeamsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:KiddEsports.MVVM.View"
+             xmlns:theme="clr-namespace:KiddEsports.Theme"
+             xmlns:viewModel="clr-namespace:KiddEsports.MVVM.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="#22202f">
+<UserControl.DataContext>
+    <viewModel:TeamsViewModel/>
+</UserControl.DataContext>
+<Grid Margin="30,0,30,30">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal"
+                    Height="30" Grid.Row="0">
+
+            <TextBox Width="150" Margin="10,5,10,0"
+                     Style="{StaticResource ModernTextbox}"
+                     theme:ThemeProperties.TextBlock="Search team name"
+                     x:Name="txtTeamName" TextChanged="txtTeamName_TextChanged">
+            </TextBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Right"
+                    Height="30" Grid.Row="1">
+            <Button Height="25" Width="25" Margin="5,0,5,0"
+                    x:Name="btnReport" Click="btnReport_Click"
+                    Style="{StaticResource ButtonTheme}">
+                <Image Source="{StaticResource report}" Margin="3"/>
+            </Button>
+            <Button Height="25" Width="25" Margin="5,0,5,0"
+                    x:Name="btnNew" Click="btnNew_Click"
+                    Style="{StaticResource ButtonTheme}">
+                <Image Source="{StaticResource plus}" Margin="3"/>
+            </Button>
+            <Button Height="25" Width="25" Margin="5,0,5,0"
+                    x:Name="btnEdit" Click="btnEdit_Click"
+                    Style="{StaticResource ButtonTheme}">
+                <Image Source="{StaticResource edit}" Margin="5"/>
+            </Button>
+
+            <Button Height="25" Width="25" Margin="5,0,5,0"
+                    x:Name="btnDelete" Click="btnDelete_Click"
+                    Style="{StaticResource ButtonTheme}">
+                <Image Source="{StaticResource delete}" Margin="5"/>
+            </Button>
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" x:Name="dgvTeamGrid" IsReadOnly="True"
+                  ItemsSource="{Binding gameList}"
+                  Style="{StaticResource DataGridStyle}"
+                  MouseDoubleClick="btnEdit_Click">
+        </DataGrid>
+
+</Grid>
+</UserControl>

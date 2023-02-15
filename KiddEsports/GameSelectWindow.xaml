@@ -1,0 +1,147 @@
+﻿<Window x:Class="KiddEsports.GameSelectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KiddEsports"
+        mc:Ignorable="d"
+        Title="GameSelectWindow" Height="1000" Width="500"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True">
+
+    <Border Style="{StaticResource WindowBorderStyle1}"
+            MouseDown="Window_MouseDown"
+            Focusable="True"
+            x:Name="windowBorder">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Grid.Column="1"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        Orientation="Horizontal"
+                        Margin="0,0,10,0">
+
+                <Button
+                    x:Name="btnMinimise"
+                    Height="20" Width="25"
+                    Click="btnMinimise_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="DeepSkyBlue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="Images\Minimise_Icon.png" Margin="0,0,0,5"/>
+                </Button>
+
+                <Button
+                    x:Name="btnClose" 
+                    Height="20" Width="25"
+                    Click="btnClose_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                          HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="White"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#FF4C70"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    <Image Source="Images\X_icon.png" Margin="5"/>
+                </Button>
+            </StackPanel>
+
+            <Button Content="Naughts and Crosses"
+                    Grid.Column="1" Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="150" Height="40"
+                    Style="{StaticResource ButtonTheme}"
+                    Click="NaC_Click"/>
+
+            <Button Content="Game of Life Sim"
+                    Grid.Column="0" Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="150" Height="40"
+                    Style="{StaticResource ButtonTheme}"
+                    Click="GOL_Click"/>
+
+            <Button Content="Snake"
+                    Grid.Column="1" Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="150" Height="40"
+                    Style="{StaticResource ButtonTheme}"
+                    Click="Snake_Click"/>
+            
+            <Button Content="Minesweeper"
+                    Grid.Column="0" Grid.Row="3"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="150" Height="40"
+                    Style="{StaticResource ButtonTheme}"
+                    Click="Minesweeper_Click"/>
+
+            <Button Content="Raycaster"
+                    Grid.Column="0" Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="150" Height="40"
+                    Style="{StaticResource ButtonTheme}"
+                    Click="Raycaster_Click"/>
+            <MediaElement Source="https://web.archive.org/web/20210922045320/https://cdn.discordapp.com/attachments/484395700654833664/497140499329581057/Shrek.mp4"
+                          Grid.Row="4" Grid.ColumnSpan="2"
+                          Height="200" SpeedRatio="10000000"/>
+            <MediaElement Source="https://web.archive.org/web/20210922045320/https://cdn.discordapp.com/attachments/484395700654833664/497140499329581057/Shrek.mp4"
+                          Grid.Row="5" Grid.ColumnSpan="2"
+                          Height="200" SpeedRatio="1"/>
+            <MediaElement Source="https://web.archive.org/web/20210922045320/https://cdn.discordapp.com/attachments/484395700654833664/497140499329581057/Shrek.mp4"
+                          Grid.Row="6" Grid.ColumnSpan="2"
+                          Height="200" SpeedRatio="0.5"/>
+        </Grid>
+    </Border>
+</Window>

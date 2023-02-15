@@ -1,0 +1,112 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+	  <DebugType>None</DebugType>
+	  <DebugSymbols>False</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Fonts\FalconsFont.ttf" />
+    <None Remove="Games\MonoRay.exe" />
+    <None Remove="Games\Naughts and Crosses.exe" />
+    <None Remove="Games\NewGOL.exe" />
+    <None Remove="Games\WPF Snake.exe" />
+    <None Remove="Games\WPF_Minesweeper.exe" />
+    <None Remove="Images\delete.png" />
+    <None Remove="Images\editIcon.png" />
+    <None Remove="Images\fire.png" />
+    <None Remove="Images\Logo.png" />
+    <None Remove="Images\Logo2.ico" />
+    <None Remove="Images\Logo2.png" />
+    <None Remove="Images\Minimise_Icon.png" />
+    <None Remove="Images\plusIcon.png" />
+    <None Remove="Images\reportIcon.png" />
+    <None Remove="Images\X_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Games\Naughts and Crosses.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Games\MonoRay.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\FalconsFont.ttf" />
+    <Content Include="Games\NewGOL.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Games\WPF Snake.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Games\WPF_Minesweeper.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\reportIcon.png" />
+    <Resource Include="Images\delete.png" />
+    <Resource Include="Images\editIcon.png" />
+    <Resource Include="Images\fire.png" />
+    <Resource Include="Images\Logo.png" />
+    <Resource Include="Images\Logo2.ico" />
+    <Resource Include="Images\Logo2.png" />
+    <Resource Include="Images\Minimise_Icon.png" />
+    <Resource Include="Images\plusIcon.png" />
+    <Resource Include="Images\X_icon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1">
+      <TreatAsUsed>true</TreatAsUsed>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data_Management\Data_Management.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MVVM\View\ResultsView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MVVM\View\ResultsView.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Theme\BigTextboxTheme.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Theme\WindowBorderTheme2.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>
